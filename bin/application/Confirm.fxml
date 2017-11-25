@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="466.0" prefWidth="395.0" styleClass="background4" stylesheets="@application.css" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ConfirmController">
+   <children>
+      <Label fx:id="ConfirmLabel" alignment="TOP_LEFT" layoutX="6.0" layoutY="75.0" prefHeight="278.0" prefWidth="388.0" text="dcnsd" wrapText="true">
+         <font>
+            <Font name="Avenir Next Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="20.0" layoutY="359.0" prefHeight="100.0" prefWidth="356.0" text="Thank you for your reservation. Please print this confirmation and pay at the counter when you arrive at the cinema.)" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="Avenir Next Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

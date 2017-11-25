@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.SepiaTone?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<TabPane prefHeight="465.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UserController">
+   <tabs>
+      <Tab fx:id="BookingTab" closable="false" text="Make a Booking">
+         <content>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="700.0" styleClass="background2" stylesheets="@application.css">
+               <children>
+                  <ComboBox fx:id="SelectFilmCB" layoutX="93.0" layoutY="188.0" onAction="#filmSelected" prefWidth="150.0" promptText="Select a Film">
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect></ComboBox>
+                  <ComboBox fx:id="SelectTimeCB" layoutX="93.0" layoutY="252.0" onAction="#timeSelected" prefWidth="150.0" promptText="Select a Time">
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect></ComboBox>
+                  <DatePicker fx:id="dateSelector" layoutX="77.0" layoutY="125.0" onAction="#dateChosen" promptText="Select a future date">
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect></DatePicker>
+                  <Button fx:id="seatsBtn" layoutX="124.0" layoutY="301.0" mnemonicParsing="false" onAction="#seatsChosen" text="Book Seats">
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect></Button>
+                  <Label fx:id="Uname" layoutX="6.0" layoutY="3.0" prefHeight="35.0" prefWidth="353.0" text="Label" textFill="WHITE">
+                     <font>
+                        <Font name="Avenir Next Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane fx:id="SeatsPane" layoutX="433.0" layoutY="47.0" opacity="0.0" prefHeight="336.0" prefWidth="213.0" style="-fx-background-color: #050500;">
+                     <children>
+                        <GridPane fx:id="seatsGrid" layoutX="22.0" layoutY="55.0" prefHeight="193.0" prefWidth="177.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Button fx:id="A1" mnemonicParsing="false" onAction="#seatClicked" style="-fx-background-color: white;" text="A1" />
+                              <Button fx:id="A2" mnemonicParsing="false" onAction="#seatClicked" style="-fx-background-color: white;" text="A2" GridPane.columnIndex="1" />
+                              <Button fx:id="A3" mnemonicParsing="false" onAction="#seatClicked" style="-fx-background-color: white;" text="A3" GridPane.columnIndex="2" />
+                              <Button fx:id="A4" mnemonicParsing="false" onAction="#seatClicked" style="-fx-background-color: white;" text="A4" GridPane.columnIndex="3" />
+                              <Button fx:id="B1" mnemonicParsing="false" onAction="#seatClicked" style="-fx-background-color: white;" text="B1" GridPane.rowIndex="1" />
+                              <Button fx:id="B2" mnemonicParsing="false" onAction="#seatClicked" style="-fx-background-color: white;" text="B2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Button fx:id="B3" mnemonicParsing="false" onAction="#seatClicked" style="-fx-background-color: white;" text="B3" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <Button fx:id="C1" mnemonicParsing="false" onAction="#seatClicked" style="-fx-background-color: white;" text="C1" GridPane.rowIndex="2" />
+                              <Button fx:id="C2" mnemonicParsing="false" onAction="#seatClicked" style="-fx-background-color: white;" text="C2" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Button fx:id="C3" mnemonicParsing="false" onAction="#seatClicked" style="-fx-background-color: white;" text="C3" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <Button fx:id="B4" mnemonicParsing="false" onAction="#seatClicked" style="-fx-background-color: white;" text="B4" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <Button fx:id="C4" mnemonicParsing="false" onAction="#seatClicked" style="-fx-background-color: white;" text="C4" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <Button fx:id="D1" mnemonicParsing="false" onAction="#seatClicked" style="-fx-background-color: white;" text="D1" GridPane.rowIndex="3" />
+                              <Button fx:id="D2" mnemonicParsing="false" onAction="#seatClicked" style="-fx-background-color: white;" text="D2" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Button fx:id="D3" mnemonicParsing="false" onAction="#seatClicked" style="-fx-background-color: white;" text="D3" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <Button fx:id="D4" mnemonicParsing="false" onAction="#seatClicked" style="-fx-background-color: white;" text="D4" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                              <Button fx:id="E1" mnemonicParsing="false" onAction="#seatClicked" style="-fx-background-color: white;" text="E1" GridPane.rowIndex="4" />
+                              <Button fx:id="E2" mnemonicParsing="false" onAction="#seatClicked" style="-fx-background-color: white;" text="E2" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Button fx:id="E3" mnemonicParsing="false" onAction="#seatClicked" style="-fx-background-color: white;" text="E3" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                              <Button fx:id="E4" mnemonicParsing="false" onAction="#seatClicked" style="-fx-background-color: white;" text="E4" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                           </children>
+                        </GridPane>
+                        <Label alignment="CENTER" layoutX="18.0" layoutY="43.0" prefHeight="17.0" prefWidth="169.0" style="-fx-background-color: BLACK;" text="SCREEN" textFill="#fcfcfc">
+                           <effect>
+                              <SepiaTone />
+                           </effect>
+                           <font>
+                              <Font name="Avenir Next Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="5.0" prefHeight="24.0" prefWidth="169.0" text="Select Your Seats" textFill="#fffbfb">
+                           <font>
+                              <Font name="Avenir Next Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="doneBTN" layoutX="81.0" layoutY="258.0" mnemonicParsing="false" onAction="#finishedSelection" text="Done">
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect></Button>
+                        <Label alignment="CENTER" layoutX="10.0" layoutY="292.0" opacity="0.79" prefHeight="40.0" prefWidth="194.0" text="(Please note: Only available seats are shown)" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Avenir Next Bold" size="13.0" />
+                           </font></Label>
+                     </children>
+                  </AnchorPane>
+                  <Button fx:id="startOver" layoutX="15.0" layoutY="383.0" mnemonicParsing="false" onAction="#startsOver" text="Start Over">
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect></Button>
+                  <Label fx:id="DateLabel" alignment="CENTER" layoutX="52.0" layoutY="89.0" opacity="0.0" prefHeight="19.0" prefWidth="244.0" style="-fx-background-color: white;" text="Please Select a FUTURE date" textFill="RED">
+                     <font>
+                        <Font name="Avenir Next Bold" size="15.0" />
+                     </font></Label>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab fx:id="FilmInfoTab" closable="false" text="Film Info">
+         <content>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="431.0" prefWidth="701.0" styleClass="background2" stylesheets="@application.css">
+               <children>
+                  <ImageView fx:id="film1Image" fitHeight="315.0" fitWidth="283.0" layoutX="370.0" layoutY="61.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="testbtn" layoutX="186.0" layoutY="86.0" mnemonicParsing="false" onAction="#test" text="Get Info">
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect></Button>
+                  <ComboBox fx:id="filminfoCB" layoutX="24.0" layoutY="86.0" prefWidth="150.0" promptText="Select a film">
+                     <cursor>
+                        <Cursor fx:constant="NONE" />
+                     </cursor>
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow radius="11.5175" width="27.07" />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect></ComboBox>
+                  <Label fx:id="filmTitle" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="134.0" opacity="0.0" prefHeight="28.0" prefWidth="270.0" text="Label" textFill="WHITE">
+                     <font>
+                        <Font name="Avenir Next Bold" size="21.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="filmDescription" alignment="TOP_LEFT" layoutX="14.0" layoutY="179.0" opacity="0.0" prefHeight="130.0" prefWidth="284.0" style="-fx-background-color: white;" text="running date 2222222---22222222" wrapText="true">
+                     <font>
+                        <Font name="Avenir Next Bold" size="12.0" />
+                     </font></Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-8.0" layoutY="44.0" prefHeight="33.0" prefWidth="349.0" text="Please select a film to view information." textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="Avenir Next Bold" size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Uname3" prefHeight="35.0" prefWidth="269.0" text="Label" textFill="WHITE">
+                     <font>
+                        <Font name="Avenir Next Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="ratingLabel" layoutX="60.0" layoutY="331.0" opacity="0.0" prefHeight="23.0" prefWidth="204.0" text="Customer Rating:" textFill="WHITE">
+                     <font>
+                        <Font name="Avenir Next Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
+         </content>
+      </Tab>
+      <Tab fx:id="ActivityTab" closable="false" text="View Activity">
+         <content>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="700.0" styleClass="background2" stylesheets="@application.css">
+               <children>
+                  <Button fx:id="EditBTN" layoutX="113.0" layoutY="285.0" mnemonicParsing="false" onAction="#EditBookingPressed" text="Delete Selected Booking">
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect></Button>
+                  <Label layoutX="221.0" layoutY="42.0" text="Booking Activity" textFill="WHITE">
+                     <font>
+                        <Font name="Avenir Next Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="ActivityList" layoutX="93.0" layoutY="101.0" prefHeight="153.0" prefWidth="535.0" />
+                  <Label fx:id="Uname1" layoutX="7.0" layoutY="4.0" prefHeight="27.0" prefWidth="259.0" text="Label" textFill="WHITE">
+                     <font>
+                        <Font name="Avenir Next Bold" size="18.0" />
+                     </font></Label>
+                  <Label fx:id="pastBookingLabel" alignment="CENTER" layoutX="89.0" layoutY="338.0" opacity="0.0" prefHeight="22.0" prefWidth="218.0" style="-fx-background-color: white;" text="Cannot Delete Past Bookings" textFill="RED">
+                     <font>
+                        <Font name="Avenir Next Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="439.0" layoutY="285.0" mnemonicParsing="false" onAction="#RateFilm" text="Rate This Film">
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect>
+                  </Button>
+                  <Label layoutX="120.0" layoutY="319.0" text="(Future Bookings Only)" textFill="WHITE">
+                     <font>
+                        <Font name="Avenir Next Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="426.0" layoutY="319.0" text="(Past Bookings Only)" textFill="WHITE">
+                     <font>
+                        <Font name="Avenir Next Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="futureBookingLabel" alignment="CENTER" layoutX="378.0" layoutY="338.0" opacity="0.0" prefHeight="22.0" prefWidth="224.0" style="-fx-background-color: white;" text="Cannot Review Future Bookings" textFill="RED">
+                     <font>
+                        <Font name="Avenir Next Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="RatingCB" layoutX="553.0" layoutY="267.0" opacity="0.0" prefHeight="27.0" prefWidth="142.0" promptText="Rate Out of 10">
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect>
+                  </ComboBox>
+                  <Button fx:id="RatingDoneBTN" layoutX="594.0" layoutY="299.0" mnemonicParsing="false" onAction="#RatingDone" opacity="0.0" text="Done">
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect>
+                  </Button>
+                  <Label fx:id="thankYou" layoutX="584.0" layoutY="330.0" opacity="0.0" text="Thank you!" textFill="WHITE">
+                     <font>
+                        <Font name="Avenir Next Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab fx:id="UpdateTab" closable="false" text="Update Profile">
+         <content>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="432.0" prefWidth="700.0" styleClass="background2" stylesheets="@application.css">
+               <children>
+                  <Label alignment="CENTER" layoutX="223.0" layoutY="13.0" text="Update Your Account " textFill="WHITE">
+                     <font>
+                        <Font name="Avenir Next Bold" size="27.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="firstName" layoutX="76.0" layoutY="117.0" promptText="Enter First Name" />
+                  <TextField fx:id="LastName" layoutX="76.0" layoutY="153.0" promptText="Enter Last Name" />
+                  <TextField fx:id="Email" layoutX="76.0" layoutY="189.0" promptText="Enter Email" />
+                  <Label fx:id="updatedInfo" layoutX="76.0" layoutY="259.0" opacity="0.0" prefHeight="52.0" prefWidth="167.0" style="-fx-background-color: white;" textFill="#f80000">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="UpdateBtn" layoutX="120.0" layoutY="223.0" mnemonicParsing="false" onAction="#updateInfoPressed" text="Update">
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect></Button>
+                  <Label fx:id="Uname2" layoutX="8.0" layoutY="9.0" prefHeight="17.0" prefWidth="254.0" textFill="WHITE">
+                     <font>
+                        <Font name="Avenir Next Bold" size="17.0" />
+                     </font></Label>
+                  <Button layoutX="31.0" layoutY="373.0" mnemonicParsing="false" onAction="#changePassword" text="Change Password">
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect></Button>
+                  <AnchorPane fx:id="newPassword" layoutX="183.0" layoutY="342.0" opacity="0.0" prefHeight="76.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="newPasswordText" layoutX="17.0" layoutY="14.0" promptText="Enter New Password" />
+                        <Button layoutX="75.0" layoutY="49.0" mnemonicParsing="false" onAction="#donePasswordChange" text="Done">
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect>
+                        </Button>
+                     </children></AnchorPane>
+                  <Label fx:id="updated" alignment="CENTER" layoutX="32.0" layoutY="400.0" opacity="0.0" prefHeight="15.0" prefWidth="128.0" text="UPDATED" textFill="WHITE">
+                     <font>
+                        <Font name="Avenir Next Bold" size="11.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
+         </content>
+      </Tab>
+      <Tab fx:id="LogoutTab" closable="false" text="Log out">
+         <content>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="700.0" styleClass="background2" stylesheets="@application.css">
+               <children>
+                  <Label layoutX="149.0" layoutY="306.0" text="Thank You for Visiting!" textFill="WHITE">
+                     <font>
+                        <Font name="Avenir Next Bold" size="38.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="LogoutBTN" layoutX="318.0" layoutY="374.0" mnemonicParsing="false" onAction="#userLogsOut" text="Log out">
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect></Button>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+   </tabs>
+</TabPane>

@@ -8,6 +8,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Light.Distant?>
 <?import javafx.scene.effect.Lighting?>
@@ -375,6 +376,21 @@
                      </font>
                   </Label>
                </children></AnchorPane>
+         </content>
+      </Tab>
+      <Tab fx:id="CommentTab" closable="false" text="Leave Comment">
+         <content>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="700.0" styleClass="background2" stylesheets="@application.css">
+               <children>
+                  <Label layoutX="15.0" layoutY="70.0" prefHeight="55.0" prefWidth="267.0" text="Please leave us a comment about how we can improve!" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="Avenir Next Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="commentBox" layoutX="28.0" layoutY="130.0" prefHeight="200.0" prefWidth="200.0" />
+                  <Button layoutX="103.0" layoutY="341.0" mnemonicParsing="false" onAction="#sendComment" text="Send" />
+               </children>
+            </AnchorPane>
          </content>
       </Tab>
       <Tab fx:id="LogoutTab" closable="false" text="Log out">

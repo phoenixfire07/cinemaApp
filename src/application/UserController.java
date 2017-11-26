@@ -42,6 +42,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Tab;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -214,13 +215,12 @@ public class UserController extends Person implements Initializable {
 				+ "," + splitArray[3].toString();
 
 		if (selectedDate.before(today)) {
-			System.out.println("this date is in the past");
+			
 			pastBookingLabel.setOpacity(1);
 		}
 
 		else if (selectedDate.after(today)) {
 			pastBookingLabel.setOpacity(0);
-			System.out.println("this date is in the future");
 			removeLineFromFile("UserData.csv", selectedLine);
 			refresh();
 		}
@@ -401,11 +401,12 @@ public class UserController extends Person implements Initializable {
 		if ((!firstName.getText().equals("")) && (!LastName.getText().equals("")) && (!Email.getText().equals(""))) {
 			updatedInfo.setOpacity(1);
 			updateMyInfo();
+			updatedInfo.setOpacity(1);
 			updatedInfo.setText("New Info: \n First name: " + firstName.getText() + "\n Last name: "
 					+ LastName.getText() + "\n Email: " + Email.getText());
 
 		} else {
-			System.out.println("presses");
+			updatedInfo.setOpacity(1);
 			updatedInfo.setText("Please complete all fields");
 		}
 
@@ -524,18 +525,17 @@ public class UserController extends Person implements Initializable {
 			String line = scanner2.nextLine();
 			if (line.contains(filminfoCB.getValue())) {
 
-				System.out.println(line);
 				String[] array = line.split(",");
 				allAdded+= Integer.parseInt(array[1]);
-//				list.add(rating);
-				System.out.println(allAdded);
+
+				
 				list.add(allAdded);	
 			}
 		}
 
 		if(list.size()>0) {
 		Integer average = (allAdded / list.size());
-		System.out.println(average);
+		
 		ratingLabel.setText("Customer Rating: " + average + "/10");
 		ratingLabel.setOpacity(1);
 		}
@@ -553,6 +553,30 @@ public class UserController extends Person implements Initializable {
 		}
 		filminfoCB.getItems().addAll(movies);
 	}
+	
+	
+	
+	@FXML
+    private Tab CommentTab;
+
+    @FXML
+    private TextArea commentBox;
+
+    @FXML
+    void sendComment(ActionEvent event) {
+    	
+    	try (FileWriter fw = new FileWriter("comments.txt", true);
+				BufferedWriter bw = new BufferedWriter(fw);
+				PrintWriter out = new PrintWriter(bw)) {
+			out.print(commentBox.getText() + "\n");
+		} catch (IOException e) {
+			System.out.println("issue with updating user comments");
+		}
+    	commentBox.setText("Thank You!");
+
+    }
+	
+	
 
 	@FXML
 	private Tab LogoutTab;

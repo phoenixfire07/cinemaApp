@@ -544,6 +544,52 @@ public class AdminController extends Person implements Initializable {
 	    
 	    
 	    
+	    @FXML
+	    private Tab feedbackTab;
+
+	    @FXML
+	    private ListView<String> feedbackList;
+	    
+	    
+	    
+	    
+	    public void fillFeedback() throws FileNotFoundException {
+
+			FileReader file = new FileReader("comments.txt");
+
+			Scanner scanner = new Scanner(file);
+			while (scanner.hasNextLine()) {
+				String line = scanner.nextLine();
+				if (!line.equals(null)) {
+					feedbackList.getItems().add(line);
+				}
+			}
+
+		}
+
+	    
+	  
+	    @FXML
+	    private Tab allActivityTab;
+
+	    @FXML
+	    private ListView<String> fillCustAct;
+	    
+	    public void fillCtsomerActivity() throws FileNotFoundException {
+
+			FileReader file = new FileReader("UserData.csv");
+
+			Scanner scanner = new Scanner(file);
+			while (scanner.hasNextLine()) {
+				String line = scanner.nextLine();
+				if (!line.equals(null)) {
+					fillCustAct.getItems().add(line);
+				}
+			}
+
+		}
+	    
+	    
 
 	@FXML
 	private Tab LogoutTab;

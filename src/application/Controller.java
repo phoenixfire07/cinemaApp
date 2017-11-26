@@ -34,9 +34,6 @@ public class Controller implements Initializable {
 	private Button LoginBtn;
 
 	@FXML
-	private ComboBox<String> CmboBx_LoginPage;
-
-	@FXML
 	private TextField textfield_LoginPage;
 
 	@FXML
@@ -72,17 +69,8 @@ public class Controller implements Initializable {
 
 	@FXML
 	void Login(ActionEvent event) throws Exception {
-		regLabel.setOpacity(0);
-
-		try (FileWriter fw = new FileWriter("LoginData.csv", true);
-				BufferedWriter bw = new BufferedWriter(fw);
-				PrintWriter out = new PrintWriter(bw)) {
-			out.print("\n" + textfield_LoginPage.getText());
-		} catch (IOException e) {
-
-		}
-
 		Checksfile();
+		regLabel.setOpacity(0);
 
 	}
 	
@@ -166,11 +154,9 @@ public class Controller implements Initializable {
 
 		File file = new File("Login.csv");
 		Scanner scanner = new Scanner(file);
-
-		int lineNum = 0;
 		while (scanner.hasNextLine()) {
 			String line = scanner.nextLine();
-			lineNum++;
+		
 
 			if (line.equals(("UName:" + textfield_LoginPage.getText()+ " Password:" + PswdField_LoginPage.getText() ))) {
 					isValid = true;
@@ -227,6 +213,8 @@ public class Controller implements Initializable {
 		AdminController adminController = loader.<AdminController>getController();
 		adminController.FillFilms();
 		adminController.FillTimes();
+		adminController.fillFeedback();
+		adminController.fillCtsomerActivity();
 
 		primaryStage.show();
 		

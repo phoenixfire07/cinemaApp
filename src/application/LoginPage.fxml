@@ -35,7 +35,17 @@
             <Font name="Avenir Next Bold" size="32.0" />
          </font>
       </Label>
-      <Button fx:id="RegBtn" layoutX="14.0" layoutY="310.0" mnemonicParsing="false" onAction="#registerNow" text="Register" />
+      <Button fx:id="RegBtn" layoutX="14.0" layoutY="310.0" mnemonicParsing="false" onAction="#registerNow" text="Register">
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect></Button>
       <AnchorPane fx:id="regPane" layoutX="14.0" layoutY="22.0" opacity="0.0" prefHeight="288.0" prefWidth="200.0" style="-fx-background-color: white;">
          <children>
             <Label layoutX="35.0" layoutY="5.0" text="Please Register Below" textFill="RED">

@@ -388,7 +388,17 @@
                      </font>
                   </Label>
                   <TextArea fx:id="commentBox" layoutX="28.0" layoutY="130.0" prefHeight="200.0" prefWidth="200.0" />
-                  <Button layoutX="103.0" layoutY="341.0" mnemonicParsing="false" onAction="#sendComment" text="Send" />
+                  <Button layoutX="103.0" layoutY="341.0" mnemonicParsing="false" onAction="#sendComment" text="Send">
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect></Button>
                </children>
             </AnchorPane>
          </content>
